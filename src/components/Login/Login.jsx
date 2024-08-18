@@ -1,36 +1,43 @@
 import React, { useState } from 'react';
-import { Container, FormsContainer, Input, Icon } from './Login.styled.js';
-import { faUser } from '@fortawesome/free-regular-svg-icons'
-
+import { Container, FormsContainer, Input, Icon, Button } from './Login.styled.js';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 function Login() {
+  const [isUsernameFocused, setIsUsernameFocused] = useState(false);
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
-  const [isFocused, setIsFocused] = useState(false);
-  if(isFocused){
-    //alert("foquei")
-  }
   return (
     <Container>
       <FormsContainer>   
-
         <h1>Login</h1>
         <form action="">
-          <>
-            <Icon icon={faUser} isFocused={isFocused} />
+          <div>
+            <Icon icon={faUser} isFocused={isUsernameFocused} />
             <Input
               type="text"
               id="username"
               placeholder="Type your username"
-              onFocus={() => setIsFocused(true)} 
-              onBlur={() => setIsFocused(false)} 
-              isFocused={isFocused}
+              onFocus={() => setIsUsernameFocused(true)} 
+              onBlur={() => setIsUsernameFocused(false)} 
+              isFocused={isUsernameFocused}
             />
-          </>
+          </div>
+          <div>
+            <Icon icon={faUser} isFocused={isPasswordFocused} />
+            <Input
+              type="password"
+              id="password"
+              placeholder="Type your password"
+              onFocus={() => setIsPasswordFocused(true)} 
+              onBlur={() => setIsPasswordFocused(false)} 
+              isFocused={isPasswordFocused}
+            />
+          </div>
+          <Button type="submit" variant="contained">LOGIN</Button>
         </form>
       </FormsContainer>
     </Container>
   );
 }
-
 
 export default Login;

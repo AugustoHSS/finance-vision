@@ -19,7 +19,7 @@ button {
     outline: 0;
     font: inherit;
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
+    font-family: "poppins";
 }
 
   `;

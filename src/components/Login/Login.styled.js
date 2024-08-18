@@ -7,6 +7,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 `
 
 export const FormsContainer = styled.div`
@@ -20,8 +21,11 @@ export const FormsContainer = styled.div`
     padding: 3%;
 
     h1{
-        font-weight: 700;
-        font-size: 40px
+        font-weight: bold;
+        font-size: 39px;
+        color: #333;
+        margin-bottom: 49px;
+        line-height: 1.2;
     }
 `
 export const Input = styled.input`
@@ -32,8 +36,7 @@ export const Input = styled.input`
   font-size: 16px;
   width: 350px;
   color: #333;
-
-
+  margin-bottom: 30px;
 
   &::placeholder {
     color: #ccc;
@@ -52,3 +55,14 @@ export const Icon = styled(FontAwesomeIcon)`
   transition: color 0.15s ease;
 `;
 
+
+export const Button = styled.button`
+    background: linear-gradient(to right, #0fcee0, #816bef, #ef0cfd);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    width: 100%;
+    height: 50px;
+`;
