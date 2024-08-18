@@ -5,12 +5,20 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 function Login() {
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+
+  function submit(e) {
+    e.preventDefault();
+
+  }
 
   return (
     <Container>
       <FormsContainer>   
         <h1>Login</h1>
-        <form action="">
+        <form onSubmit={(e) => submit(e)}>
           <div>
             <Icon icon={faUser} isFocused={isUsernameFocused} />
             <Input
