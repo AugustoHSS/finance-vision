@@ -27,6 +27,14 @@ export const FormsContainer = styled.div`
         margin-bottom: 49px;
         line-height: 1.2;
     }
+
+    a{
+        all: unset;
+        cursor: pointer;
+        color: #666;
+        font-size: 14px;
+        line-height: 24px;
+    }
 `
 export const Input = styled.input`
   flex: 1;
@@ -58,6 +66,7 @@ export const Icon = styled(FontAwesomeIcon)`
 
 export const Button = styled.button`
     background: linear-gradient(to right, #0fcee0, #816bef, #ef0cfd);
+    background-position: left;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -65,4 +74,8 @@ export const Button = styled.button`
     font-size: 16px;
     width: 100%;
     height: 50px;
+
+    &:hover {
+      background: linear-gradient(to right, #0bb4c2, #6a57cc, #c009d1);
+}
 `;
