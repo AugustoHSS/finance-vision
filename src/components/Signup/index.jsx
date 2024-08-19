@@ -16,12 +16,17 @@ function Signup() {
 
   async function submit(e) {
     e.preventDefault();
-    try {
-      await api.login({ email, password });
-      navigate('/');
-    } catch (error) {
-      alert(error?.message || 'error');
+    if (password !== confirmPassword) {
+      alert('As senhas não são iguais. Tente novamente.');
+      return;
     }
+    try {
+        await api.createUser({ email, password });
+        navigate('/login');
+        alert("usuario criado com sucesso");
+      } catch (error) {
+        alert(error?.message || 'error');
+      }
   }
 
   return (
@@ -59,7 +64,7 @@ function Signup() {
           </div>
           <p>Confirm Password</p>
           <div>
-            <Icon icon={faLock} isFocused={isPasswordFocused} />
+            <Icon icon={faLock} isFocused={isConfirmPasswordFocused} />
             <Input
               type="password"
               id="password"

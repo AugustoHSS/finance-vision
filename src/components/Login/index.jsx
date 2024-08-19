@@ -15,7 +15,12 @@ function Login() {
 
   async function submit(e) {
     e.preventDefault();
-
+    try {
+      await api.login({ email, password });
+      navigate('/');
+    } catch (error) {
+      alert(error?.message || 'error');
+    }
   }
 
   return (
