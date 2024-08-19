@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import backgroundImage from './oi.jpg';
+import backgroundImage from './background.jpg';
 
 export default createGlobalStyle`
 body {

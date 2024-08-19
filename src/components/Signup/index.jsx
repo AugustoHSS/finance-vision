@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Container, FormsContainer, Input, Icon, Button } from './Login.styled.js';
+import { Container, FormsContainer, Input, Icon, Button } from '../Login/Login.styled.js';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import api from '../../services/api.js';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Login() {
+function Signup() {
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+  const [isConfirmPasswordFocused, setIsConfirmPasswordFocused] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   async function submit(e) {
@@ -27,6 +29,7 @@ function Login() {
       <FormsContainer>   
         <h1>Login</h1>
         <form onSubmit={(e) => submit(e)}>
+        <p>Username</p>
           <div>
             <Icon icon={faUser} isFocused={isUsernameFocused} />
             <Input
@@ -40,6 +43,7 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          <p>Password</p>
           <div>
             <Icon icon={faLock} isFocused={isPasswordFocused} />
             <Input
@@ -53,12 +57,26 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <Button type="submit" variant="contained">LOGIN</Button>
+          <p>Confirm Password</p>
+          <div>
+            <Icon icon={faLock} isFocused={isPasswordFocused} />
+            <Input
+              type="password"
+              id="password"
+              placeholder="Type your password"
+              onFocus={() => setIsConfirmPasswordFocused(true)} 
+              onBlur={() => setIsConfirmPasswordFocused(false)} 
+              isFocused={isConfirmPasswordFocused}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          <Button type="submit" variant="contained">REGISTER</Button>
         </form>
-        <Link to="/signup">Or Sign Up Using An Email</Link>
+        <Link to="/login">Already Have An Acoount?</Link>
       </FormsContainer>
     </Container>
   );
 }
 
-export default Login;
+export default Signup;
