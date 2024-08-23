@@ -40,11 +40,14 @@ export const FormsContainer = styled.div`
         font-size: 14px;
         line-height: 24px;
     }
+    form {
+      label{
+            margin-top: 8px;
+        }
+    }
 `
 export const Input = styled.input`
-  flex: 1;
   border: none;
-  outline: none;
   background: transparent;
   font-size: 16px;
   height: 55px;
@@ -95,3 +98,12 @@ export const SocialIcons = styled.div`
     font-size: 35px;
   }
 `;
+
+export const FormsSeparetor = styled.div`
+margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  a{
+    margin-top: -5px;
+  }
+`

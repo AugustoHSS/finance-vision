@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
-import { Container, FormsContainer, Input, Icon, Button } from '../Login/Login.styled.js';
+import { Container, FormsContainer, Input, Icon, Button, SocialIcons,FormsSeparetor } from './Login.styled.js';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
+import { faFacebookF, faXTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import api from '../../services/api.js';
 import { Link, useNavigate } from 'react-router-dom';
+import Checkbox from '../../components/Checkbox.jsx';
 
-function Signup() {
+export default function Login() {
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
-  const [isConfirmPasswordFocused, setIsConfirmPasswordFocused] = useState(false);
+  const [isRememberMe, setIsRememberMe] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   async function submit(e) {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert('As senhas não são iguais. Tente novamente.');
-      return;
-    }
     try {
-        await api.createUser({ email, password });
-        navigate('/login');
-        alert("usuario criado com sucesso");
-      } catch (error) {
-        alert(error?.message || 'error');
+      const userData = await api.login({ email, password });
+      if (isRememberMe) {
+        localStorage.setItem('authToken', userData.token);
+      } else {
+        sessionStorage.setItem('authToken', userData.token);
       }
+      navigate('/');
+    } catch (error) {
+      alert(error?.message || 'error');
+    }
   }
 
   return (
@@ -62,26 +63,23 @@ function Signup() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <p>Confirm Password</p>
-          <div>
-            <Icon icon={faLock} isFocused={isConfirmPasswordFocused} />
-            <Input
-              type="password"
-              id="password"
-              placeholder="Type your password"
-              onFocus={() => setIsConfirmPasswordFocused(true)} 
-              onBlur={() => setIsConfirmPasswordFocused(false)} 
-              isFocused={isConfirmPasswordFocused}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          <Button type="submit" variant="contained">REGISTER</Button>
+          <FormsSeparetor>
+            <Checkbox 
+            isChecked={isRememberMe} 
+            onChange={() => setIsRememberMe(!isRememberMe)} 
+            label="Remember Me"/>
+            <Link to="/signup" >Forgot password?</Link>
+          </FormsSeparetor>    
+          <Button type="submit" variant="contained">LOGIN</Button>
         </form>
-        <Link to="/login">Already Have An Acoount?</Link>
+        <p>Or Sign Up Using</p>
+        <SocialIcons>
+          <Link to="/signup"><Icon icon={faFacebookF} style={{ color: '#1877F2' }}/></Link>
+          <Link to="/signup"><Icon icon={faXTwitter } style={{ color: 'black' }}/></Link>
+          <Link to="/signup"><Icon icon={faGoogle} style={{ color: '#DB4437' }}/></Link>
+        </SocialIcons>
+        <Link to="/signup">Sign Up Using An Email</Link>
       </FormsContainer>
     </Container>
   );
 }
-
-export default Signup;
