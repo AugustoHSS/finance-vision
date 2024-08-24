@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../../components/Sidebar.jsx';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -11,7 +12,13 @@ export default function Home() {
         }
       }, [navigate]);
   return (
-    <p>teste</p>
+    <div>
+    <Sidebar />
+    <div style={{ marginLeft: '60px', padding: '20px' }}>
+      {/* Aqui você colocaria o conteúdo principal da sua aplicação */}
+      <h1>Conteúdo Principal</h1>
+    </div>
+  </div>
   )
 }
 

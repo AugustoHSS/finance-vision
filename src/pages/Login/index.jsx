@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, FormsContainer, Input, Icon, Button, SocialIcons,FormsSeparetor } from './Login.styled.js';
+import { Container, FormsContainer, Input, Icon, Button, SocialIcons,FormsSeparator } from './Login.styled.js';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faXTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -64,13 +64,13 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <FormsSeparetor>
+          <FormsSeparator>
             <Checkbox 
             isChecked={isRememberMe} 
             onChange={() => setIsRememberMe(!isRememberMe)} 
             label="Remember Me"/>
             <Link to="/signup" >Forgot password?</Link>
-          </FormsSeparetor>    
+          </FormsSeparator>    
           <Button type="submit" variant="contained">LOGIN</Button>
         </form>
         <p>Or Sign Up Using</p>

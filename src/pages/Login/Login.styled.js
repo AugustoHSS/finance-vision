@@ -99,7 +99,7 @@ export const SocialIcons = styled.div`
   }
 `;
 
-export const FormsSeparetor = styled.div`
+export const FormsSeparator = styled.div`
 margin-top: 10px;
   display: flex;
   justify-content: space-between;
