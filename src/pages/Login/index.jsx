@@ -3,7 +3,7 @@ import { Container, FormsContainer, Input, Icon, Button, SocialIcons,FormsSepare
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faXTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons';
-import api from '../../services/api.js';
+import { login } from '../../services/authApi.js';
 import { Link, useNavigate } from 'react-router-dom';
 import Checkbox from '../../components/Checkbox.jsx';
 
@@ -18,11 +18,12 @@ export default function Login() {
   async function submit(e) {
     e.preventDefault();
     try {
-      const userData = await api.login({ email, password });
+      const userData = await login({ email, password });
       if (isRememberMe) {
         localStorage.setItem('authToken', userData.token);
       } else {
         sessionStorage.setItem('authToken', userData.token);
+        console.log("oiiiii")
       }
       navigate('/');
     } catch (error) {

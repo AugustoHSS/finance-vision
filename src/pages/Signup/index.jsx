@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, FormsContainer, Input, Icon, Button } from '../Login/Login.styled.js';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faLock } from '@fortawesome/free-solid-svg-icons';
-import api from '../../services/api.js';
+import { createUser } from '../../services/authApi.js';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Signup() {
@@ -21,7 +21,7 @@ export default function Signup() {
       return;
     }
     try {
-        await api.createUser({ email, password });
+        await createUser({ email, password });
         navigate('/login');
         alert("usuario criado com sucesso");
       } catch (error) {
