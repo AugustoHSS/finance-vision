@@ -1,58 +1,66 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const SidebarContainer = styled.div`
-  width: ${(props) => (props.isOpen ? '250px' : '63px')};
-  background-color: #0F0F0F;
+export const ProfileSection = styled.div`
+  text-align: center;
+  margin-bottom: 30px;
+
+  p {
+    margin: 5px;
+    font-size: 14px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+`;
+
+export const Logo = styled.h1`
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffd700;
+`;
+
+export const ProfilePicture = styled.img`
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+`;
+
+export const Navigation = styled.ul`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const NavItem = styled.li`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 5vh;
+
+  &:hover {
+    background-color: #333;
+  }
+`;
+
+export const NavText = styled.span`
+`;
+
+export const StyledSidebar = styled.div`
+  min-width: 14vw;
   height: 100vh;
-  transition: width 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  //align-items: center;
+  background-color: #212121;
   color: white;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-  p{
-    display: ${(props) => (props.isOpen ? 'block' : 'none')};
-  }
-`;
-
-export const MenuButton = styled.button`
-  background-color: transparent;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  margin: 10px 0;
-  cursor: pointer;
-  border-radius: 100px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #2C2C2C;
-  }
-`;
-
-export const SidebarContent = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  padding: 20px 0;
 `;
 
-export const SidebarItem = styled.div`
-  padding: 15px 20px;
-  width: 100%;
-  height: 55px;
-  text-align: left;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: background-color 0.2s ease;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+export const LastNavItem = styled(NavItem)`
+  margin-top: auto;
 `;
