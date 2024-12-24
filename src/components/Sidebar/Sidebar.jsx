@@ -4,14 +4,17 @@ import { faHome, faCompass, faBell, faUser, faList, faDoorOpen} from '@fortaweso
 import { SidebarContainer, MenuButton, SidebarItem, SidebarContent } from './Sidebar.styled';
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+  function toggleSidebar() {
+    setIsSidebarExpanded(!isSidebarExpanded);
+  };
+  function logout() {
+    
   };
 
   return (
-    <SidebarContainer isOpen={isOpen}>
+    <SidebarContainer isOpen={isSidebarExpanded}>
       <MenuButton onClick={toggleSidebar}>
       <FontAwesomeIcon icon={faList} />
       </MenuButton>
@@ -33,7 +36,7 @@ export default function Sidebar() {
             <p>Perfil</p>
           </SidebarItem>
           <SidebarItem>
-            <FontAwesomeIcon icon={faDoorOpen} />
+            <FontAwesomeIcon icon={faDoorOpen} onClick={logout} />
             <p>Sair</p>
           </SidebarItem>  
         </SidebarContent>      

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,  useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from '../../components/Sidebar.jsx';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import { Container } from './home.styled';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -12,13 +13,11 @@ export default function Home() {
         }
       }, [navigate]);
   return (
-    <div>
-    <Sidebar />
-    <div style={{ marginLeft: '60px', padding: '20px' }}>
-      {/* Aqui você colocaria o conteúdo principal da sua aplicação */}
-      <h1>Conteúdo Principal</h1>
-    </div>
-  </div>
+    <Container>
+      <Sidebar />
+      <div style={{ marginLeft: '60px', padding: '20px' }}>
+        <h1>Conteúdo Principal</h1>
+      </div>
+  </Container>
   )
 }
-

@@ -5,7 +5,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faXTwitter, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { login } from '../../services/authApi.js';
 import { Link, useNavigate } from 'react-router-dom';
-import Checkbox from '../../components/Checkbox.jsx';
+import Checkbox from '../../components/Checkbox/Checkbox';
 
 export default function Login() {
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
@@ -23,7 +23,6 @@ export default function Login() {
         localStorage.setItem('authToken', userData.token);
       } else {
         sessionStorage.setItem('authToken', userData.token);
-        console.log("oiiiii")
       }
       navigate('/');
     } catch (error) {

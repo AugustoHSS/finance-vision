@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
-  width: ${(props) => (props.isOpen ? '250px' : '60px')};
+  width: ${(props) => (props.isOpen ? '250px' : '63px')};
   background-color: #0F0F0F;
   height: 100vh;
-  position: fixed;
   transition: width 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  //align-items: center;
   color: white;
   box-shadow: 2px 0 5px rgba(0,0,0,0.5);
   p{
@@ -45,7 +44,7 @@ export const SidebarItem = styled.div`
   height: 55px;
   text-align: left;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #ffffff;
   display: flex;
