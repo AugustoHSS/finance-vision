@@ -7,8 +7,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const [isUsernameFocused, setIsUsernameFocused] = useState(false);
+  const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const [isConfirmPasswordFocused, setIsConfirmPasswordFocused] = useState(false);
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -21,7 +23,7 @@ export default function Signup() {
       return;
     }
     try {
-        await createUser({ email, password });
+        await createUser({ email, password, confirmPassword, username });
         navigate('/login');
         alert("usuario criado com sucesso");
       } catch (error) {
@@ -38,12 +40,26 @@ export default function Signup() {
           <div>
             <Icon icon={faUser} isFocused={isUsernameFocused} />
             <Input
-              type="email"
+              type="name"
               id="username"
               placeholder="Type your username"
               onFocus={() => setIsUsernameFocused(true)} 
               onBlur={() => setIsUsernameFocused(false)} 
               isFocused={isUsernameFocused}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+        <p>Email</p>
+          <div>
+            <Icon icon={faUser} isFocused={isEmailFocused} />
+            <Input
+              type="email"
+              id="email"
+              placeholder="Type your email"
+              onFocus={() => setIsEmailFocused(true)} 
+              onBlur={() => setIsEmailFocused(false)} 
+              isFocused={isEmailFocused}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />

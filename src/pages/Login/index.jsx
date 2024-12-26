@@ -35,13 +35,13 @@ export default function Login() {
       <FormsContainer>   
         <h1>Login</h1>
         <form onSubmit={(e) => submit(e)}>
-        <p>Username</p>
+        <p>Email</p>
           <div>
             <Icon icon={faUser} isFocused={isUsernameFocused} />
             <Input
               type="email"
               id="username"
-              placeholder="Type your username"
+              placeholder="Type your Email"
               onFocus={() => setIsUsernameFocused(true)} 
               onBlur={() => setIsUsernameFocused(false)} 
               isFocused={isUsernameFocused}
