@@ -7,7 +7,9 @@ import {
   MonthlyProfits,
   UsersInLastWeek,
   LastOrders,
+  Top
 } from "./dashBoard.styled";
+import UserChart from "../../components/BarChart"
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -22,9 +24,16 @@ export default function Dashboard() {
   return (
     <Container>
       <DashboardSearch>Dashboard Search</DashboardSearch>
-      <Statics>Statics</Statics>
+      <Statics>Statics
+      
+      </Statics>
       <MonthlyProfits>Monthly Profits</MonthlyProfits>
-      <UsersInLastWeek>Users in the Last Week</UsersInLastWeek>
+      <UsersInLastWeek>
+        <p>Users in the Last Week</p>
+        <p>+ 45%</p>
+        <UserChart/ >
+      </UsersInLastWeek>
+      <Top></Top>
       <LastOrders>Last Orders</LastOrders>
     </Container>
   );

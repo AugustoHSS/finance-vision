@@ -24,7 +24,7 @@ export default function Login() {
       } else {
         sessionStorage.setItem('authToken', userData.token);
       }
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       alert(error?.message || 'error');
     }

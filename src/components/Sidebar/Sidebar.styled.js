@@ -53,7 +53,7 @@ export const NavText = styled.span`
 export const StyledSidebar = styled.div`
   min-width: 14vw;
   height: 100vh;
-  background-color: #212121;
+  background-color: #2c2c2c;
   color: white;
   display: flex;
   flex-direction: column;
