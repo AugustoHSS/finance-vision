@@ -10,6 +10,7 @@ import {
   Top
 } from "./dashBoard.styled";
 import UserChart from "../../components/BarChart"
+import DoughnutChart from "../../components/DoughnutChart"; 
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -27,9 +28,13 @@ export default function Dashboard() {
       <Statics>Statics
       
       </Statics>
-      <MonthlyProfits>Monthly Profits</MonthlyProfits>
+      <MonthlyProfits>
+        <h2>Monthly Profits</h2>
+        <h3>Total Profit growth of x%</h3>
+	        <DoughnutChart/ >
+      </MonthlyProfits>
       <UsersInLastWeek>
-        <p>Users in the Last Week</p>
+        <h2>Users in the Last Week</h2>
         <p>+ 45%</p>
         <UserChart/ >
       </UsersInLastWeek>

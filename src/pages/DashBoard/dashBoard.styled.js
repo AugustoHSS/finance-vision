@@ -11,6 +11,21 @@ export const Container = styled.div`
   grid-template-rows: 0.4fr 1.1fr 1fr 1fr;
   height: 100vh;
   width: 100vw;
+
+  h2{
+    font-size: 19px;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-left: 18px;
+  }
+  h3{
+    font-size: 14px;
+    color: #999;
+    font-weight: 400;
+    margin-bottom: 3px;
+    margin-left: 18px;
+  }
 `;
 
 export const DashboardSearch = styled.div`
@@ -31,7 +46,8 @@ export const MonthlyProfits = styled.div`
   grid-area: profits;
   background-color: #ffffff;
   padding: 16px;
-  text-align: center;
+  text-align: left;
+  
 `;
 
 export const UsersInLastWeek = styled.div`
