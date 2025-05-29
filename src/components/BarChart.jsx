@@ -41,6 +41,7 @@ const UserChart = () => (
         tickLine={false}
       />
       <YAxis
+        tickFormatter={(value) => `$${value}`}
         axisLine={false}
         tickLine={false}
         tickCount={6}
