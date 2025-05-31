@@ -1,9 +1,10 @@
 import { PieChart, Pie, Cell, ResponsiveContainer,Tooltip  } from "recharts";
 
 const data = [
-    { name: "Service Dolar", value: 584.5, color: "#8b8efa" },
-    { name: "Service M", value: 24, color: "#ffe5a2" },
-    { name: "Tips", value: 54, color: "#c6d0bc" },
+    { name: "Service Dolar", value: 784.5, color: "#8b8efa" },
+    { name: "Service M", value: 0, color: "#ffe5a2" },
+    { name: "External Jobs", value: 54, color: "#826f5e" },
+    { name: "Tips", value: 100, color: "#c6d0bc" },
 ];
 
 const total = data.reduce((acc, entry) => acc + entry.value, 0);
