@@ -43,7 +43,9 @@ export default function Sidebar() {
         </Navigation>
       </StyledSidebar>
     
-      <AddServiceModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {isModalOpen && (
+        <AddServiceModal onClose={() => setIsModalOpen(false)} />
+      )}
     </>
   );
 }
