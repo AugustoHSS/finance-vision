@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {
   ModalOverlay,
   ModalContainer,
@@ -16,6 +16,7 @@ import {
 } from "./AddServiceModal.styled";
 import Select from "react-select";
 import { format } from "date-fns";
+import { getBosses } from '../../services/bossesApi.js';
 
 export default function AddServiceModal({ onClose }) {
   const [isService, setIsService] = useState(true);
@@ -26,10 +27,7 @@ export default function AddServiceModal({ onClose }) {
     { value: "client1", label: "Client 1" },
     { value: "client2", label: "Client 2" }
   ];
-  const bossOptions = [
-    { value: "boss1", label: "Boss 1" },
-    { value: "boss2", label: "Boss 2" }
-  ];
+  const [bossOptions, setBossOptions] = useState([]);
 
   const [client, setClient] = useState(null);
   const [boss, setBoss] = useState(null);
@@ -42,6 +40,30 @@ export default function AddServiceModal({ onClose }) {
   const [tipDate, setTipDate] = useState(today);
   const [tipClient, setTipClient] = useState(null);
   const [tipValue, setTipValue] = useState("");
+
+
+  useEffect(() => {
+  async function fetchBosses() {
+    try {
+      const response = await getBosses();
+      const data = response.data;
+      const options = data.map(boss => ({
+      value: boss.id,
+      label: boss.name
+      }));
+      setBossOptions(options);
+
+    } catch (err) {
+      console.error("Erro ao buscar bosses:", err);
+    }
+  }
+
+  fetchBosses();
+}, []);
+
+
+
+
 
   const submitService = () => {
     const data = {
