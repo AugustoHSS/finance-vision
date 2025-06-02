@@ -18,6 +18,7 @@ import Select from "react-select";
 import { format } from "date-fns";
 import { getBosses } from '../../services/bossesApi.js';
 import { getClients } from '../../services/clientsApi.js';
+import { createService } from '../../services/servicesApi.js';
 
 export default function AddServiceModal({ onClose }) {
   const [isService, setIsService] = useState(true);
@@ -70,20 +71,32 @@ export default function AddServiceModal({ onClose }) {
 
 
 
-  const submitService = () => {
+  const submitService  = async () => {
     const data = {
-      client: client?.value,
-      boss: boss?.value,
-      date,
+      clientId: client?.value,
+      bossId: boss?.value,
+      serviceDate: new Date(date),
       value: parseFloat(value),
       killCount: parseInt(killCount),
       paymentType: paymentType.value,
-      ticket: isTicket
+      isTicket
     };
-    console.log("Sending service data:", data);
+    try{
+    if (!data.clientId || !data.bossId || !data.serviceDate || !data.value || !data.killCount) {
+      console.log(data)
+      throw new Error("All fields are required");
+    }
+    const auth = localStorage.getItem("authToken");
+    await createService(data, auth);
+    onClose();
 
+    } catch (error) {
+      console.error("Error submitting service:", error);
+      console.log("Data being sent:", data);
+      alert("Please fill in all required fields.");
+      return;
+    };
   };
-
 
   const submitTip = () => {
     const data = {
@@ -98,7 +111,6 @@ export default function AddServiceModal({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     isService ? submitService() : submitTip();
-    onClose();
   };
 
   return (

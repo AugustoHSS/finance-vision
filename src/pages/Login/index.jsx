@@ -20,9 +20,9 @@ export default function Login() {
     try {
       const userData = await login({ email, password });
       if (isRememberMe) {
-        localStorage.setItem('authToken', userData.token);
+        localStorage.setItem('authToken', userData.accessToken);
       } else {
-        sessionStorage.setItem('authToken', userData.token);
+        sessionStorage.setItem('authToken', userData.accessToken);
       }
       navigate('/dashboard');
     } catch (error) {
