@@ -17,17 +17,16 @@ import {
 import Select from "react-select";
 import { format } from "date-fns";
 import { getBosses } from '../../services/bossesApi.js';
+import { getClients } from '../../services/clientsApi.js';
 
 export default function AddServiceModal({ onClose }) {
   const [isService, setIsService] = useState(true);
 
   const today = format(new Date(), "yyyy-MM-dd");
 
-  const clientOptions = [
-    { value: "client1", label: "Client 1" },
-    { value: "client2", label: "Client 2" }
-  ];
+
   const [bossOptions, setBossOptions] = useState([]);
+  const [clientOptions, setClientOptions] = useState([]);
 
   const [client, setClient] = useState(null);
   const [boss, setBoss] = useState(null);
@@ -45,13 +44,19 @@ export default function AddServiceModal({ onClose }) {
   useEffect(() => {
   async function fetchBosses() {
     try {
-      const response = await getBosses();
-      const data = response.data;
-      const options = data.map(boss => ({
+      const bossesResponse = await getBosses();
+      const bossesOptions = bossesResponse.map(boss => ({
       value: boss.id,
       label: boss.name
       }));
-      setBossOptions(options);
+      setBossOptions(bossesOptions);
+
+      const clientResponse = await getClients();
+      const clientOptions = clientResponse.map(client => ({
+      value: client.id,
+      label: client.name
+      }));
+      setClientOptions(clientOptions);
 
     } catch (err) {
       console.error("Erro ao buscar bosses:", err);
