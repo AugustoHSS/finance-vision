@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -117,9 +117,9 @@ export const ToggleTypeButtons = styled.div`
 export const ToggleButton = styled.button`
   flex: 1;
   padding: 10px;
-  border: 2px solid ${({ active }) => (active ? "#8b8efa" : "#ccc")};
-  background: ${({ active }) => (active ? "#8b8efa" : "white")};
-  color: ${({ active }) => (active ? "white" : "#333")};
+  border: 2px solid ${({ active }) => (active ? '#8b8efa' : '#ccc')};
+  background: ${({ active }) => (active ? '#8b8efa' : 'white')};
+  color: ${({ active }) => (active ? 'white' : '#333')};
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;

@@ -8,7 +8,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-`
+`;
 
 export const FormsContainer = styled.div`
     width: 500px;
@@ -46,7 +46,7 @@ export const FormsContainer = styled.div`
             margin-top: 8px;
         }
     }
-`
+`;
 export const Input = styled.input`
   border: none;
   background: transparent;
@@ -107,4 +107,4 @@ margin-top: 10px;
   a{
     margin-top: -5px;
   }
-`
+`;

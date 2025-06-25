@@ -1,12 +1,11 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const Checkbox = ({ isChecked, onChange, label }) => (
-  <CheckboxContainer>
-    <HiddenCheckbox checked={isChecked} onChange={onChange} />
-    <StyledCheckbox isChecked={isChecked} />
-    {label}
-  </CheckboxContainer>
+    <CheckboxContainer>
+        <HiddenCheckbox checked={isChecked} onChange={onChange} />
+        <StyledCheckbox isChecked={isChecked} />
+        {label}
+    </CheckboxContainer>
 );
 
 export default Checkbox;
@@ -35,7 +34,6 @@ const StyledCheckbox = styled.span`
   border-radius: 4px;
   display: inline-block;
   transition: all 150ms;
-
   &:after {
     content: "";
     position: absolute;
