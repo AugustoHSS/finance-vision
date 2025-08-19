@@ -9,7 +9,6 @@ import {
     Label,
     Input,
     CheckboxLabel,
-
     SubmitButton,
     ToggleTypeButtons,
     ToggleButton,
@@ -19,7 +18,7 @@ import { format } from 'date-fns';
 import Checkbox from '../../components/Checkbox/Checkbox';
 import { getBosses } from '../../services/bossesApi.js';
 import { getClients } from '../../services/clientsApi.js';
-import { createService } from '../../services/servicesApi.js';
+import { createSession } from '../../services/sessionApi.js';
 
 export default function AddServiceModal({ onClose }) {
     const [isService, setIsService] = useState(true);
@@ -88,7 +87,7 @@ export default function AddServiceModal({ onClose }) {
                 throw new Error('All fields are required');
             }
             const auth = localStorage.getItem('authToken');
-            await createService(data, auth);
+            await createSession(data, auth);
             onClose();
 
         } catch (error) {

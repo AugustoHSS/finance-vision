@@ -17,7 +17,7 @@ export default function Sidebar() {
     return (
         <>
             <StyledSidebar>
-                <Logo>Empresa</Logo>
+                <Logo>Nome</Logo>
                 <ProfileSection>
                     <ProfilePicture src="https://picsum.photos/200" alt="Profile" />
                     <p>Welcome Back,</p>

@@ -5,11 +5,11 @@ import {
     DashboardSearch,
     Statics,
     MonthlyProfits,
-    UsersInLastWeek,
+    ThisWeek,
     LastOrders,
-    Top,
+    LastTips,
 } from './dashBoard.styled';
-import UserChart from '../../components/BarChart';
+import WeekChart from '../../components/BarChart';
 import DoughnutChart from '../../components/DoughnutChart';
 
 export default function Dashboard() {
@@ -33,13 +33,16 @@ export default function Dashboard() {
                 <h3>Total Profit growth of x%</h3>
                 <DoughnutChart />
             </MonthlyProfits>
-            <UsersInLastWeek>
-                <h2>Users in the Last Week</h2>
-                <p>+ 45%</p>
-                <UserChart />
-            </UsersInLastWeek>
-            <Top></Top>
-            <LastOrders>Last Orders</LastOrders>
+            <ThisWeek>
+                <h2>This Week</h2>
+                <p>Growth +45%</p>
+                <WeekChart />
+            </ThisWeek>
+            <LastTips>
+                <h2>Lasts Tips</h2>
+            </LastTips>
+            <LastOrders>Last Orders
+            </LastOrders>
         </Container>
     );
 }

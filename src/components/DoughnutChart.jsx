@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip  } from 'recharts';
-import { getServicesTotals } from '../services/servicesApi.js';
+import { getSessionsTotals } from '../services/sessionApi.js';
 
 const data = [
     { name: 'Service Dolar', value: 784.5, color: '#8b8efa' },
@@ -16,7 +16,7 @@ const DoughnutChart = () => {
         async function fetchBosses() {
             try {
                 const auth = localStorage.getItem('authToken');
-                const totals = await getServicesTotals(auth);
+                const totals = await getSessionsTotals(auth);
                 console.log('Service Totals:', totals);
 
             } catch (err) {

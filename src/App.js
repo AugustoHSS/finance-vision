@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 
 function Layout() {
     const location = useLocation();
-    const hideSidebar = ['/login', '/signup'].includes(location.pathname); // Condição para esconder a Sidebar
+    const hideSidebar = ['/login', '/signup'].includes(location.pathname);
 
     return (
         <div style={{ display: 'flex' }}>

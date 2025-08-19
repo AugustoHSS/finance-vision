@@ -30,7 +30,7 @@ const CustomTooltip = ({ active, payload }) => {
     return null;
 };
 
-const UserChart = () => (
+const WeekChart = () => (
     <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -59,4 +59,4 @@ const UserChart = () => (
     </ResponsiveContainer>
 );
 
-export default UserChart;
+export default WeekChart;
