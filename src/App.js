@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, useLocation  } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import DashBoard from './pages/DashBoard';
+import Home from './pages/Home';
 import GlobalStyles from './GlobalStyles';
 import Sidebar from './components/Sidebar';
 import { AuthProvider } from './context/auth/AuthContext';
@@ -14,6 +15,7 @@ function Layout() {
         <div style={{ display: 'flex' }}>
             {!hideSidebar && <Sidebar />}
             <Routes>
+                <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/dashboard" element={<DashBoard />} />
