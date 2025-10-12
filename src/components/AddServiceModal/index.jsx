@@ -19,12 +19,14 @@ import Checkbox from '../../components/Checkbox/Checkbox';
 import { getBosses } from '../../services/bossesApi.js';
 import { getClients } from '../../services/clientsApi.js';
 import { createSession } from '../../services/sessionApi.js';
+import { useAuth } from '../../context/auth/AuthContext';
 
 export default function AddServiceModal({ onClose }) {
+    const { accessToken } = useAuth();
+
     const [isService, setIsService] = useState(true);
 
     const today = format(new Date(), 'yyyy-MM-dd');
-
 
     const [bossOptions, setBossOptions] = useState([]);
     const [clientOptions, setClientOptions] = useState([]);
@@ -67,11 +69,8 @@ export default function AddServiceModal({ onClose }) {
         fetchBosses();
     }, []);
 
-
-
-
-
     const submitService  = async () => {
+
         const data = {
             clientId: client?.value,
             bossId: boss?.value,
@@ -83,11 +82,10 @@ export default function AddServiceModal({ onClose }) {
         };
         try{
             if (!data.clientId || !data.bossId || !data.serviceDate || !data.value || !data.killCount) {
-                console.log(data);
                 throw new Error('All fields are required');
             }
-            const auth = localStorage.getItem('authToken');
-            await createSession(data, auth);
+            console.log('token when sending', accessToken);
+            await createSession(data, accessToken);
             onClose();
 
         } catch (error) {

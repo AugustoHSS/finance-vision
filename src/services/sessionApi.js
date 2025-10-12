@@ -1,7 +1,7 @@
 import api from './api';
 
 export async function createSession(data, token) {
-
+    console.log(token);
     const response = await api.post('/services', data, {
         headers: {
             Authorization: `Bearer ${token}`,

@@ -4,6 +4,7 @@ import Signup from './pages/Signup';
 import DashBoard from './pages/DashBoard';
 import GlobalStyles from './GlobalStyles';
 import Sidebar from './components/Sidebar';
+import { AuthProvider } from './context/auth/AuthContext';
 
 function Layout() {
     const location = useLocation();
@@ -15,7 +16,7 @@ function Layout() {
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/DashBoard" element={<DashBoard />} />
+                <Route path="/dashboard" element={<DashBoard />} />
             </Routes>
         </div>
     );
@@ -23,10 +24,13 @@ function Layout() {
 
 function App() {
     return (
-        <BrowserRouter>
+    <BrowserRouter>
+        <AuthProvider>
             <GlobalStyles />
             <Layout />
-        </BrowserRouter>
+        </AuthProvider>
+    </BrowserRouter>
+        
     );
 }
 
